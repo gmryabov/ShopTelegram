@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="slider.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<style>
+  * {
+    width: 100vw;
+    margin: 0;
+  }
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+  .swiper-button-next {
+    right: 0px !important;
+    top: 50vw;
+  }
+  .swiper-button-prev {
+    left: 0px !important;
+    top: 50vw;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after {
+    content: none;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    border-radius: 50%;
+    background: #d3d3d34d;
+    width: 10vw;
+    height: 10vw;
+    color: black;
+    font-size: 7vw;
+  }
+  .swiper-button-next:hover, .swiper-button-prev:hover {
+    color: #d63384;
+    background: #d3d3d34d;
+  }
+  :root {
+    --swiper-theme-color: #ff0055;
+  }
+
+</style>
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+<body>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Frame 1.jpg"></div>
+      <div class="swiper-slide"><img src="Frame 2.jpg"></div>
+      <div class="swiper-slide"><img src="Frame 3.jpg"></div>
+      <div class="swiper-slide"><img src="Frame 4.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="swiper-button-next">></div>
+  <div class="swiper-button-prev"><</div>
+
+<script>
+var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+</script>
+</body>
+</html>

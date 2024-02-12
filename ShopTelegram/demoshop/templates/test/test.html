@@ -1,0 +1,8 @@
+        {% for category in categories %}
+        <div class="rows">
+            <div class="category">
+                <img class="category-image" src="{{ category.image.url }}">
+                <div class="category-title">{{ category.title }}</div>
+            </div>
+        </div>
+        {% endfor %}
