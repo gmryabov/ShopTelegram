@@ -309,15 +309,19 @@
   transition: opacity 0.5s;
   }
   #contact_inner {
-    top: 0%;
+    opacity: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   .contact-info {
-    position: absolute;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
   }
   .contact-title {
     font-size: 7vw;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
