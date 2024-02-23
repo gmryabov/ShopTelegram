@@ -30,8 +30,7 @@ var cart = document.getElementById("cart_inner")
 var barItems = document.getElementsByClassName("bar-items")[0]
 function closeMenu(main) {
     var link = document.getElementsByClassName("link active")[0]
-    bar.style.top = "100%";
-    barItems.style.bottom = "0%"
+    bar.style.transform = "translateY(95vh)";
     link.classList.remove("active")
     var link_inner = main.getElementsByClassName("link")[0]
     link_inner.classList.add("active")
@@ -44,8 +43,7 @@ function menuItems(menuItem) {
     var link_inner = menuItem.getElementsByClassName("link")[0]
     if (check_item) {
         active = true;
-        bar.style.top = "100%";
-        barItems.style.bottom = "0%"
+        bar.style.transform = "translateY(95vh)";
         link_inner.classList.remove("active")
         main.getElementsByClassName("link")[0].classList.add("active")
         menu_items[menuItem.id].style.opacity = "0"
@@ -54,8 +52,7 @@ function menuItems(menuItem) {
     link.classList.remove("active")
     link_inner.classList.add("active")
     if (active) {
-        bar.style.top = "5%";
-        barItems.style.bottom = "90%"
+        bar.style.transform = "translateY(2vh)";
     }
 
     for (var key in menu_items) {
