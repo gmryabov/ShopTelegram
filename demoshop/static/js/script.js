@@ -52,7 +52,7 @@ function menuItems(menuItem) {
     link.classList.remove("active")
     link_inner.classList.add("active")
     if (active) {
-        bar.style.transform = "translateY(2vh)";
+        bar.style.transform = "translateY(4vh)";
     }
 
     for (var key in menu_items) {
