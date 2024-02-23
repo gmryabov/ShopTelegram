@@ -132,3 +132,4 @@ function backToCat() {
     catalog.style.zIndex = "100";
     return;
 }
+console.log(tg.WebApp.initData)
