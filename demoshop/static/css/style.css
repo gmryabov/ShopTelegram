@@ -5,11 +5,6 @@
     svg {
         transition: none;
     }
-    /*@media (max-height: 800px) {
-        .bar-bottom {
-            overflow-x: auto;
-        }
-    }*/
     .bar-bottom {
         width: 98vw;
         height: 103vh;
@@ -27,7 +22,6 @@
     .bar-items {
         position: static;
         padding: 2vh 0;
-        overflow: hidden;
     }
     .items {
         display: flex;
@@ -41,7 +35,6 @@
       list-style-type: none;
     }
     a {
-        /* padding: 10% 20% 10% 20%; */
         color: #202020;
         text-decoration: none;
         font-size: 2vh;
@@ -260,6 +253,8 @@
     display: none;
     }
   #categories {
+    height: 100%;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -294,7 +289,7 @@
     justify-content: center;
   }
   #cart_inner, #contact_inner, #categories {
-  transition: opacity 0.5s;
+    transition: opacity 0.5s;
   }
   #contact_inner {
     opacity: 1;
@@ -314,6 +309,5 @@
     justify-content: center;
   }
   .scroll {
-    overflow: auto;
     height: 100vh;
   }

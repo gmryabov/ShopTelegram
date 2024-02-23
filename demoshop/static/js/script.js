@@ -58,9 +58,11 @@ function menuItems(menuItem) {
     for (var key in menu_items) {
         if (key === menuItem.id) {
             menu_items[key].style.opacity = "1"
+            menu_items[key].style.zIndex = "100"
         }
         else {
             menu_items[key].style.opacity = "0"
+            menu_items[key].style.zIndex = "0"
         }
     }
     return;
