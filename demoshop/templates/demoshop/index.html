@@ -114,7 +114,7 @@
         {% for sub_cat in subcat %}
           <div class="sub-cat {{ sub_cat.parent }}">{{ sub_cat.title }}</div>
         {% endfor %}
-        <div class="sub-back">Back</div>
+        <div class="sub-back {{ sub_cat.parent }}" onclick="backToCat()">Back</div>
         </div>
         <div id="cart_inner">Ваша корзина пуста</div>
         <div id="contact_inner">

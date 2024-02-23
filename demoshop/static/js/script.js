@@ -53,9 +53,11 @@ function menuItems(menuItem) {
             console.log(subMenu)
             element.style.opacity = "0";
             element.style.zIndex = "0";
+            setTimeout(() => {element.style.display = "none"}, 400)
         });
         backSub.style.opacity = "0";
         backSub.style.zIndex = "0";
+        backSub.style.display = "none"
     }
 
     var link = document.getElementsByClassName("link active")[0]
@@ -95,15 +97,38 @@ function choose(catItem) {
     console.log(backSub)
     sub_cat.forEach((element)  => {
         if (element.classList.contains(`${catItem.id}`)) {
+            element.style.display = "flex"
             element.style.opacity = "1";
             element.style.zIndex = "100";
+            backSub.style.display = "flex"
+        } else {
+            if (element.classList.contains(`sub-back`)) {
+                backSub.style.display = "flex"
+                backSub.style.opacity = "1";
+                backSub.style.zIndex = "100";
+
+                catalog.style.opacity = "0";
+                catalog.style.zIndex = "0";
+
+                subMenu = true;
+            } else {
+            element.style.display = "none"
+            };
+            return;
         }
+
     });
-        backSub.style.opacity = "1";
-        backSub.style.zIndex = "100";
+}
 
-        catalog.style.opacity = "0";
-        catalog.style.zIndex = "0";
+function backToCat() {
+    sub_cat.forEach((element)  => {
+        element.style.opacity = "0";
+        element.style.zIndex = "0";
+    });
+    backSub.style.opacity = "0";
+    backSub.style.zIndex = "0";
 
-        subMenu = true;
+    catalog.style.opacity = "1";
+    catalog.style.zIndex = "100";
+    return;
 }
