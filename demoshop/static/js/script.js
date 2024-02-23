@@ -1,5 +1,11 @@
 var infoCredit = document.querySelector("#credit-info");
 var overlay = document.querySelector("#overlay");
+var subMenu = false;
+var subCategories = document.querySelector(`.sub-categories`);
+var sub_cat = subCategories.querySelectorAll('.sub-categories > *');
+var backSub = subCategories.querySelector('.sub-back')
+
+
 
 function isStyleEqual(element, styleProperty, value) {
   var computedStyle = window.getComputedStyle(element);
@@ -28,6 +34,8 @@ var catalog = document.getElementById("categories")
 var contact = document.getElementById("contact_inner")
 var cart = document.getElementById("cart_inner")
 var barItems = document.getElementsByClassName("bar-items")[0]
+
+
 function closeMenu(main) {
     var link = document.getElementsByClassName("link active")[0]
     bar.style.transform = "translateY(95vh)";
@@ -36,8 +44,20 @@ function closeMenu(main) {
     link_inner.classList.add("active")
     return;
 }
+
 var menu_items = {"catalog": catalog, "cart": cart, "contact": contact};
 function menuItems(menuItem) {
+    if (subMenu) {
+        sub_cat.forEach((element)  => {
+            subMenu = false;
+            console.log(subMenu)
+            element.style.opacity = "0";
+            element.style.zIndex = "0";
+        });
+        backSub.style.opacity = "0";
+        backSub.style.zIndex = "0";
+    }
+
     var link = document.getElementsByClassName("link active")[0]
     var check_item = menuItem.getElementsByClassName("link")[0].classList.contains('active')
     var link_inner = menuItem.getElementsByClassName("link")[0]
@@ -68,3 +88,22 @@ function menuItems(menuItem) {
     return;
 }
 
+
+function choose(catItem) {
+    var sub_cat = subCategories.querySelectorAll('.sub-categories > *');
+    var backSub = subCategories.querySelector('.sub-back')
+    console.log(backSub)
+    sub_cat.forEach((element)  => {
+        if (element.classList.contains(`${catItem.id}`)) {
+            element.style.opacity = "1";
+            element.style.zIndex = "100";
+        }
+    });
+        backSub.style.opacity = "1";
+        backSub.style.zIndex = "100";
+
+        catalog.style.opacity = "0";
+        catalog.style.zIndex = "0";
+
+        subMenu = true;
+}

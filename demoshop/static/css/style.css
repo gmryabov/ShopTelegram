@@ -277,6 +277,9 @@
     border: 0.5px dotted lightgray;
     width: 28%
     }
+  .category:hover {
+    background:#efefff
+  }
   .category-image {
     width: 100px;
   }
@@ -310,4 +313,26 @@
   }
   .scroll {
     height: 100vh;
+  }
+  .sub-back, .sub-cat {
+    transition: opacity 0.5s;
+    opacity:0;
+    display: flex;
+    padding: 3.5vh 0;
+    border-top: 0.5px solid grey;
+    border-bottom: 0.5px solid grey;
+    width: 100%;
+    justify-content: center;
+  }
+  .sub-categories {
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s ease-in-out 0s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3vh;
+  }
+  .sub-cat:hover, .sub-back:hover {
+    color: #007aff;
   }

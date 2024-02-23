@@ -82,3 +82,15 @@ class Categories(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+
+class SubCategory(models.Model):
+    parent = models.ForeignKey(Categories, on_delete=models.CASCADE, related_name="Родительская категория+", parent_link=True)
+    title = models.CharField('Название', max_length=100, null=True, blank=False)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Раздел'
+        verbose_name_plural = 'Разделы'

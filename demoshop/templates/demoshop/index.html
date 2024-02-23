@@ -103,12 +103,18 @@
         <div id="categories">
           <div class="rows">
             {% for category in categories %}
-              <div class="category">
+              <div class="category" id="{{ category.title }}" onclick="choose(this)">
                 <img class="category-image" src="{{ category.image.url }}" />
                 <div class="category-title">{{ category.title }}</div>
               </div>
             {% endfor %}
           </div>
+        </div>
+        <div class="sub-categories">
+        {% for sub_cat in subcat %}
+          <div class="sub-cat {{ sub_cat.parent }}">{{ sub_cat.title }}</div>
+        {% endfor %}
+        <div class="sub-back">Back</div>
         </div>
         <div id="cart_inner">Ваша корзина пуста</div>
         <div id="contact_inner">
