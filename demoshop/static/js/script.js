@@ -120,9 +120,11 @@ function backToCat() {
 
 
 
-const mainImage = document.querySelector(".product-pic.active")
 
-// const mainImage = document.querySelector(".product-pic")
+const mainImage = document.getElementsByClassName("product-pic")[0]
+const heBlock = document.getElementsByClassName("product-swipper")[0]
+console.log(heBlock.style.height)
+heBlock.style.height = `${mainImage.height}px`
 function setImage(productImage) {
     let productPic = document.querySelectorAll(".product-pic")
     let picArr = Array.from(productPic)
