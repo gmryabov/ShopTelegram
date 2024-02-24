@@ -1,18 +1,9 @@
-var infoCredit = document.querySelector("#credit-info");
-var overlay = document.querySelector("#overlay");
-var subMenu = false;
-var subCategories = document.querySelector(`.sub-categories`);
-var sub_cat = subCategories.querySelectorAll('.sub-categories > *');
-var backSub = subCategories.querySelector('.sub-back')
-
-
-
-function isStyleEqual(element, styleProperty, value) {
-  var computedStyle = window.getComputedStyle(element);
-  var computedValue = computedStyle.getPropertyValue(styleProperty);
-  return computedValue === value;
-}
-
+const infoCredit = document.querySelector("#credit-info");
+const overlay = document.querySelector("#overlay");
+let subMenu = false;
+const subCategories = document.querySelector(`.sub-categories`);
+let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
+const backSub = subCategories.querySelector('.sub-back');
 
 function credit() {
     infoCredit.style.transform = "translate(0, 0)"
@@ -26,31 +17,31 @@ function closeCredit() {
     overlay.style.zIndex = "-999";
 }
 
-var active = true;
+let active = true;
 const main = document.getElementById("main")
 
-var bar = document.getElementsByClassName("bar-bottom")[0]
-var catalog = document.getElementById("categories")
-var contact = document.getElementById("contact_inner")
-var cart = document.getElementById("cart_inner")
-var barItems = document.getElementsByClassName("bar-items")[0]
+const bar = document.getElementsByClassName("bar-bottom")[0];
+const catalog = document.getElementById("categories");
+const contact = document.getElementById("contact_inner");
+let cart = document.getElementById("cart_inner");
+
+// var barItems = document.getElementsByClassName("bar-items")[0]
 
 
 function closeMenu(main) {
-    var link = document.getElementsByClassName("link active")[0]
+    let link = document.getElementsByClassName("link active")[0];
     bar.style.transform = "translateY(95vh)";
     link.classList.remove("active")
-    var link_inner = main.getElementsByClassName("link")[0]
+    let link_inner = main.getElementsByClassName("link")[0];
     link_inner.classList.add("active")
-    return;
 }
 
-var menu_items = {"catalog": catalog, "cart": cart, "contact": contact};
+const menu_items = {"catalog": catalog, "cart": cart, "contact": contact};
+
 function menuItems(menuItem) {
     if (subMenu) {
         sub_cat.forEach((element)  => {
             subMenu = false;
-            console.log(subMenu)
             element.style.opacity = "0";
             element.style.zIndex = "0";
             setTimeout(() => {element.style.display = "none"}, 400)
@@ -60,9 +51,9 @@ function menuItems(menuItem) {
         backSub.style.display = "none"
     }
 
-    var link = document.getElementsByClassName("link active")[0]
-    var check_item = menuItem.getElementsByClassName("link")[0].classList.contains('active')
-    var link_inner = menuItem.getElementsByClassName("link")[0]
+    let link = document.getElementsByClassName("link active")[0];
+    let check_item = menuItem.getElementsByClassName("link")[0].classList.contains('active');
+    const link_inner = menuItem.getElementsByClassName("link")[0];
     if (check_item) {
         active = true;
         bar.style.transform = "translateY(95vh)";
@@ -77,7 +68,7 @@ function menuItems(menuItem) {
         bar.style.transform = "translateY(4vh)";
     }
 
-    for (var key in menu_items) {
+    for (let key in menu_items) {
         if (key === menuItem.id) {
             menu_items[key].style.opacity = "1"
             menu_items[key].style.zIndex = "100"
@@ -87,14 +78,11 @@ function menuItems(menuItem) {
             menu_items[key].style.zIndex = "0"
         }
     }
-    return;
 }
 
 
 function choose(catItem) {
-    var sub_cat = subCategories.querySelectorAll('.sub-categories > *');
-    var backSub = subCategories.querySelector('.sub-back')
-    console.log(backSub)
+    let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
     sub_cat.forEach((element)  => {
         if (element.classList.contains(`${catItem.id}`)) {
             element.style.display = "flex"
@@ -113,10 +101,8 @@ function choose(catItem) {
                 subMenu = true;
             } else {
             element.style.display = "none"
-            };
-            return;
+            }
         }
-
     });
 }
 
@@ -130,6 +116,5 @@ function backToCat() {
 
     catalog.style.opacity = "1";
     catalog.style.zIndex = "100";
-    return;
 }
-console.log(tg.WebApp.initData)
+

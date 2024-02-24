@@ -9,8 +9,7 @@
         width: 98vw;
         height: 103vh;
         position: fixed;
-        box-shadow: 0px -4px 2vw rgba(0,0,0,0.15), 0px -4px 2vw rgba(0,0,0,0.15);
-        border-radius: 5vw 5vw 0 0;
+      border-radius: 5vw 5vw 0 0;
         z-index: 99;
         bottom: 0;
         left: 1%;
@@ -19,6 +18,11 @@
         background: white;
         transform: translateY(95vh);
     }
+
+    .bar-bottom {
+      box-shadow: 0 -4px 2vw rgba(0,0,0,0.15), 0 -4px 2vw rgba(0,0,0,0.15);
+    }
+
     .bar-items {
         position: static;
         padding: 2vh 0;
@@ -119,11 +123,11 @@
     justify-content: center;
   }
   .swiper-button-next {
-    right: 0px !important;
+    right: 0 !important;
     top: 50vw;
   }
   .swiper-button-prev {
-    left: 0px !important;
+    left: 0 !important;
     top: 50vw;
   }
   .swiper-button-next:after, .swiper-button-prev:after {
@@ -165,8 +169,8 @@
     justify-content: end;
     background: white;
     align-items: center;
-    border-radius: 0 12px 12px 0px;
-    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 0 12px 12px 0;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
     position: absolute;
     left: -5vw;
     cursor: pointer;
@@ -183,7 +187,7 @@
     border-radius: 10px;
   }
   table {
-    border-spacing: 0px;
+    border-spacing: 0;
   }
   #credit-info {
     display: flex;
@@ -258,7 +262,6 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    opacity: 1;
     left: 1%;
     right: 1%;
     opacity: 0;
@@ -335,4 +338,60 @@
   }
   .sub-cat:hover, .sub-back:hover {
     color: #007aff;
+  }
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: antiquewhite;
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    border-radius: 5%;
+    justify-content: flex-start;
+  }
+  .product-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-image {
+    width: 30%;
+  }
+  .button-add  {
+    display: flex;
+    background: blue;
+    width: 20%;
+    color: white;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 1vw;
+    margin: 1vh;
+  }
+  .product-tag {
+    color: #FF9800;
+    margin: 1vh;
+  }
+  .product-desc-inner {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 2vh 0;
+    border-top: 1px dotted;
+  }
+  .product-desc {
+    padding: 1vh 0;
+  }
+  .product-images {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .product-pic {
+    width: 90%;
+    padding: 1vh;
   }
