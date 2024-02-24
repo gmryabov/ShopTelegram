@@ -70,7 +70,14 @@
             {% endif %}
             <div class="product-price">Цена: {{ product.price|floatformat }} ₽</div>
             <div class="button-add">Buy</div>
-            <img class="product-pic" src="{{ product.image.url }}">
+            <div class="product-swipper">
+            <img class="product-pic active" src="{{ product.image.url }}">
+            {% for img in product_images %}
+                {% if img.product_id == product.id %}
+                    <img class="product-pic" src="{{ img.image.url }}">
+                {% endif %} 
+            {% endfor %}
+            </div>
             <div class="product-images">
             <img class="product-image active" src="{{ product.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
             {% for img in product_images %}

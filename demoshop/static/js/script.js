@@ -118,15 +118,33 @@ function backToCat() {
     catalog.style.zIndex = "100";
 }
 
-const mainImage = document.querySelector(".product-pic")
+
+
+const mainImage = document.querySelector(".product-pic.active")
+
+// const mainImage = document.querySelector(".product-pic")
 function setImage(productImage) {
+    let productPic = document.querySelectorAll(".product-pic")
+    let picArr = Array.from(productPic)
     let images = document.querySelectorAll(".product-image")
+    let arr = Array.from(images)
     images.forEach(image => {
         let activeImage = document.querySelector(".product-image.active")
-        mainImage.src = activeImage.src
+        // mainImage.src = activeImage.src
         if (activeImage !== productImage) {
             activeImage.classList.remove("active")
             productImage.classList.add("active")
+
+            let idx = arr.indexOf(productImage)
+
+            picArr.forEach(cadr => {
+                cadr.classList.remove("active")
+            })
+            picArr[idx].classList.add("active")
+            // console.log(picArr[picArr.length-1])
+            // picArr[idx-1].style.transform = `translate(${-115}%, 0)`
+            // picArr[idx].style.transform = `translate(${0}%, 0)`
         }
     })
+
 }

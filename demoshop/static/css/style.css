@@ -341,8 +341,8 @@
   }
   .product {
     z-index: 100;
-    top: 1vh;
-    height: 100vh;
+    top: 3vh;
+    height: 97vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -396,10 +396,25 @@
     width: 90%;
   }
   .product-pic {
-    width: 90%;
-    padding: 1vh;
+    width: 100%;
+    transition: opacity 0.5s;
+    position: absolute;
+    opacity: 0;
+  }
+  .product-pic.active {
+    opacity: 1;
   }
   .product-image.active {
     outline: 1px solid #007aff;
     outline-offset: -1px;
-}
+  }
+  .product-swipper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
+    height: 43vh;
+  }
