@@ -72,9 +72,10 @@
             <div class="button-add">Buy</div>
             <img class="product-pic" src="{{ product.image.url }}">
             <div class="product-images">
+            <img class="product-image active" src="{{ product.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
             {% for img in product_images %}
                 {% if img.product_id == product.id %}
-                    <img class="product-image" src="{{ img.image.url }}" alt="{{ product.name }}"/>
+                    <img class="product-image" src="{{ img.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
                 {% endif %} 
             {% endfor %}
             </div>

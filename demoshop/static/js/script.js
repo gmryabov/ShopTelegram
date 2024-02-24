@@ -118,3 +118,15 @@ function backToCat() {
     catalog.style.zIndex = "100";
 }
 
+const mainImage = document.querySelector(".product-pic")
+function setImage(productImage) {
+    let images = document.querySelectorAll(".product-image")
+    images.forEach(image => {
+        let activeImage = document.querySelector(".product-image.active")
+        mainImage.src = activeImage.src
+        if (activeImage !== productImage) {
+            activeImage.classList.remove("active")
+            productImage.classList.add("active")
+        }
+    })
+}
