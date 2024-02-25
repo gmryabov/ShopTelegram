@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
-from .models import Banner, PromoBlock, CreditInfo, Categories, SubCategory, CreditProgram, ContactInfo, Products, \
+from .models import Banner,  CreditInfo, Categories, SubCategory, CreditProgram, ContactInfo, Products, \
     ProductImage
 import random
 
@@ -8,7 +8,6 @@ import random
 @never_cache
 def index(request):
     banners = Banner.objects.order_by('id')
-    promo = PromoBlock.objects.order_by('id')
     credit = CreditInfo.objects.order_by('id')
     credit_programm = CreditProgram.objects.order_by('id')
     categories = Categories.objects.order_by('id')
@@ -19,7 +18,6 @@ def index(request):
     product_images = ProductImage.objects.order_by('id')
     context = {'title': 'Главная страница',
                'banners': banners,
-               'promo': promo,
                'credit': credit,
                'program': credit_programm,
                'nums': nums,

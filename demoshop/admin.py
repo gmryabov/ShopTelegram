@@ -2,20 +2,28 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(Banner)
-admin.site.register(PromoBlock)
 admin.site.register(ContactInfo)
 
+
 class ProductImageInline(admin.TabularInline):
-  model = ProductImage
-  verbose_name = 'Изображение'
-  verbose_name_plural = 'Изображения'
-  max_num = 10
-  extra = 0
-  can_delete = True
+    model = ProductImage
+    verbose_name = 'Изображение'
+    verbose_name_plural = 'Изображения'
+    max_num = 10
+    extra = 0
+    can_delete = True
 
 
 class ProductAdmin(admin.ModelAdmin):
-  inlines = [ProductImageInline,]
+    list_display = ('id', 'name', 'memory', 'price', 'category', 'tags',)
+    list_filter = ('price', 'name')
+    list_display_links = ('name',)
+    list_editable = ('price', 'tags',)
+    search_fields = ['name']
+    search_help_text = 'Поиск по наименованию'
+    list_per_page = 20
+    actions = ['delete_selected']
+    inlines = [ProductImageInline, ]
 
 
 admin.site.register(Products, ProductAdmin)
@@ -38,6 +46,10 @@ class CategoryChild(admin.StackedInline):
 
 class CategoryFather(admin.ModelAdmin):
     inlines = [CategoryChild]
+    list_display = ('id', 'title',)
+    list_filter = ('id',)
+    list_display_links = ('title',)
+
 
 
 admin.site.register(Categories, CategoryFather)
