@@ -70,28 +70,29 @@
             {% endif %}
             <div class="product-price">Цена: {{ product.price|floatformat }} ₽</div>
             <div class="button-add">Buy</div>
-            <div class="product-swipper">
-            <img class="product-pic active" src="{{ product.image.url }}">
-            {% for img in product_images %}
-                {% if img.product_id == product.id %}
-                    <img class="product-pic" src="{{ img.image.url }}">
-                {% endif %} 
-            {% endfor %}
+            <div class="detail-info">
+                <div class="product-swipper">
+                    <img class="product-pic active" src="{{ product.image.url }}">
+                    {% for img in product_images %}
+                        {% if img.product_id == product.id %}
+                            <img class="product-pic" src="{{ img.image.url }}">
+                        {% endif %} 
+                    {% endfor %}
+                </div>
+                <div class="product-images">
+                    <img class="product-image active" src="{{ product.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
+                    {% for img in product_images %}
+                        {% if img.product_id == product.id %}
+                            <img class="product-image" src="{{ img.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
+                        {% endif %} 
+                    {% endfor %}
+                </div>
+                {% if product.description %}
+                    <div class="product-desc-inner">
+                        <div class="product-desc">{{ product.description }}</div>
+                    </div>
+                    {% endif %}
             </div>
-            <div class="product-images">
-            <img class="product-image active" src="{{ product.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
-            {% for img in product_images %}
-                {% if img.product_id == product.id %}
-                    <img class="product-image" src="{{ img.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
-                {% endif %} 
-            {% endfor %}
-            </div>
-            </img>
-            {% if product.description %}
-            <div class="product-desc-inner">
-                <div class="product-desc">{{ product.description }}</div>
-            </div>
-            {% endif %}
         </div>
     {% endfor %}
     </div>
@@ -145,6 +146,9 @@
         <div class="sub-categories">
         {% for sub_cat in subcat %}
           <div class="sub-cat {{ sub_cat.parent }}">{{ sub_cat.title }}</div>
+        {% endfor %}
+        {% for product in products %}
+        	<div class="sub-prod">{{ product.name }}</div>
         {% endfor %}
         <div class="sub-back {{ sub_cat.parent }}" onclick="backToCat()">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">

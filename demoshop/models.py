@@ -113,7 +113,7 @@ class Products(models.Model):
     description = models.TextField('Описание', null=False, blank=False, default="", validators=[MinLengthValidator(0)])
     image = models.ImageField('Картинка для анонса', null=True, blank=True)
     memory = models.CharField("Объем памяти ГБ", max_length=100, null=True, blank=True, default="", validators=[MinLengthValidator(0)])
-    category = models.ForeignKey(SubCategory, verbose_name="Родительская категория", on_delete=models.CASCADE, related_name="Родительский элемент+", null=False, blank=False)
+    category = models.ForeignKey(SubCategory, verbose_name="Родительская категория", on_delete=models.CASCADE, null=False, blank=False)
 
     def __str__(self):
         return self.name
