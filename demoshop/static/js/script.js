@@ -4,6 +4,10 @@ let subMenu = false;
 const subCategories = document.querySelector(`.sub-categories`);
 let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
 const backSub = subCategories.querySelector('.sub-back');
+const mainImage = document.getElementsByClassName("product-pic")[0]
+const heBlock = document.getElementsByClassName("product-swipper")[0]
+heBlock.style.height = `${mainImage.height}px`
+
 
 function credit() {
     infoCredit.style.transform = "translate(0, 0)"
@@ -24,9 +28,6 @@ const bar = document.getElementsByClassName("bar-bottom")[0];
 const catalog = document.getElementById("categories");
 const contact = document.getElementById("contact_inner");
 let cart = document.getElementById("cart_inner");
-
-// var barItems = document.getElementsByClassName("bar-items")[0]
-
 
 function closeMenu(main) {
     let link = document.getElementsByClassName("link active")[0];
@@ -80,7 +81,6 @@ function menuItems(menuItem) {
     }
 }
 
-
 function choose(catItem) {
     let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
     sub_cat.forEach((element)  => {
@@ -118,13 +118,6 @@ function backToCat() {
     catalog.style.zIndex = "100";
 }
 
-
-
-
-const mainImage = document.getElementsByClassName("product-pic")[0]
-const heBlock = document.getElementsByClassName("product-swipper")[0]
-console.log(heBlock.style.height)
-heBlock.style.height = `${mainImage.height}px`
 function setImage(productImage) {
     let productPic = document.querySelectorAll(".product-pic")
     let picArr = Array.from(productPic)
@@ -149,4 +142,30 @@ function setImage(productImage) {
         }
     })
 
+}
+
+function subChoose(subItem) {
+    let subItemTitle = subItem.innerHTML
+    // console.log(subItemTitle)
+
+    let arr = document.querySelectorAll(`.sub-prod`)
+    console.log(arr)
+    arr.forEach(elem => {
+        if (elem.id === subItemTitle) {
+            elem.parentElement.style.display = "flex"
+            elem.parentElement.style.opacity = "1"
+            elem.parentElement.style.zIndex = "1"
+
+            elem.style.display = "flex";
+            elem.style.opacity = "1";
+            elem.style.zIndex = "1"
+        } else {
+            elem.parentElement.style.display = "none"
+            elem.parentElement.style.opacity = "0"
+            elem.parentElement.style.zIndex = "0"
+            elem.style.display = "none"
+            elem.style.opacity = "0";
+            elem.style.zIndex = "0"
+        }
+    })
 }
