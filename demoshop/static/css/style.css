@@ -431,7 +431,7 @@
     display: none;
     justify-content: center;
     width: 100%;
-    padding: 1vh;
+    padding: 2vh;
     outline: 1px dotted gray;
     align-items: center;
   }
