@@ -1,35 +1,25 @@
-const infoCredit = document.querySelector("#credit-info");
-const overlay = document.querySelector("#overlay");
 let subMenu = false;
-const subCategories = document.querySelector(`.sub-categories`);
-let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
-const backSub = subCategories.querySelector('.sub-back');
-const mainImage = document.getElementsByClassName("product-pic")[0]
-const heBlock = document.getElementsByClassName("product-swipper")[0]
-heBlock.style.height = `${mainImage.height}px`
-
+let active = true;
 
 function credit() {
+    const infoCredit = document.querySelector("#credit-info");
+    const overlay = document.querySelector("#overlay");
     infoCredit.style.transform = "translate(0, 0)"
     overlay.style.opacity = "1";
     overlay.style.display = "block";
     overlay.style.zIndex = "999";
 }
+
 function closeCredit() {
+    const infoCredit = document.querySelector("#credit-info");
+    const overlay = document.querySelector("#overlay");
     infoCredit.style.transform = "translate(-150%, 0px)"
     overlay.style.opacity = "0";
     overlay.style.zIndex = "-999";
 }
 
-let active = true;
-const main = document.getElementById("main")
-
-const bar = document.getElementsByClassName("bar-bottom")[0];
-const catalog = document.getElementById("categories");
-const contact = document.getElementById("contact_inner");
-let cart = document.getElementById("cart_inner");
-
 function closeMenu(main) {
+    const bar = document.getElementsByClassName("bar-bottom")[0];
     let link = document.getElementsByClassName("link active")[0];
     bar.style.transform = "translateY(95vh)";
     link.classList.remove("active")
@@ -37,9 +27,16 @@ function closeMenu(main) {
     link_inner.classList.add("active")
 }
 
-const menu_items = {"catalog": catalog, "cart": cart, "contact": contact};
-
 function menuItems(menuItem) {
+    const catalog = document.getElementById("categories");
+    const contact = document.getElementById("contact_inner");
+    let cart = document.getElementById("cart_inner");
+    const menu_items = {"catalog": catalog, "cart": cart, "contact": contact};
+    const main = document.getElementById("main")
+    const subCategories = document.querySelector(`.sub-categories`);
+    let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
+    const backSub = subCategories.querySelector('.sub-back');
+    const bar = document.getElementsByClassName("bar-bottom")[0];
     if (subMenu) {
         sub_cat.forEach((element)  => {
             subMenu = false;
@@ -82,6 +79,9 @@ function menuItems(menuItem) {
 }
 
 function choose(catItem) {
+    const catalog = document.getElementById("categories");
+    const subCategories = document.querySelector(`.sub-categories`);
+    const backSub = subCategories.querySelector('.sub-back');
     let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
     sub_cat.forEach((element)  => {
         if (element.classList.contains(`${catItem.id}`)) {
@@ -107,6 +107,10 @@ function choose(catItem) {
 }
 
 function backToCat() {
+    const catalog = document.getElementById("categories");
+    const subCategories = document.querySelector(`.sub-categories`);
+    let sub_cat = subCategories.querySelectorAll('.sub-categories > *');
+    const backSub = subCategories.querySelector('.sub-back');
     sub_cat.forEach((element)  => {
         element.style.opacity = "0";
         element.style.zIndex = "0";
@@ -119,29 +123,16 @@ function backToCat() {
 }
 
 function setImage(productImage) {
-    let productPic = document.querySelectorAll(".product-pic")
-    let picArr = Array.from(productPic)
+    const mainImage = document.getElementsByClassName("product-pic")[0]
+    mainImage.src = productImage.src
     let images = document.querySelectorAll(".product-image")
-    let arr = Array.from(images)
-    images.forEach(image => {
-        let activeImage = document.querySelector(".product-image.active")
-        // mainImage.src = activeImage.src
-        if (activeImage !== productImage) {
-            activeImage.classList.remove("active")
-            productImage.classList.add("active")
-
-            let idx = arr.indexOf(productImage)
-
-            picArr.forEach(cadr => {
-                cadr.classList.remove("active")
-            })
-            picArr[idx].classList.add("active")
-            // console.log(picArr[picArr.length-1])
-            // picArr[idx-1].style.transform = `translate(${-115}%, 0)`
-            // picArr[idx].style.transform = `translate(${0}%, 0)`
+    images.forEach(imag => {
+        if (imag === productImage){
+            imag.classList.add('active')
+        } else {
+            imag.classList.remove('active')
         }
     })
-
 }
 
 function subChoose(subItem) {
@@ -151,21 +142,9 @@ function subChoose(subItem) {
     let arr = document.querySelectorAll(`.sub-prod`)
     console.log(arr)
     arr.forEach(elem => {
+        console.log(elem)
         if (elem.id === subItemTitle) {
-            elem.parentElement.style.display = "flex"
-            elem.parentElement.style.opacity = "1"
-            elem.parentElement.style.zIndex = "1"
-
-            elem.style.display = "flex";
-            elem.style.opacity = "1";
-            elem.style.zIndex = "1"
-        } else {
-            elem.parentElement.style.display = "none"
-            elem.parentElement.style.opacity = "0"
-            elem.parentElement.style.zIndex = "0"
-            elem.style.display = "none"
-            elem.style.opacity = "0";
-            elem.style.zIndex = "0"
+            console.log(elem)
         }
     })
 }

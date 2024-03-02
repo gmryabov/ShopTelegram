@@ -58,8 +58,9 @@
       </table>
     </div>
     <div id="overlay" onclick="closeCredit()"></div>
-    <div class="product">
+    
     {% for product in products %}
+        <div class="product">
         <div class="product-inner" id="{{ product.name }}-{{ product.id }}">
             {% if product.tags %}
             <div class="product-tag">{{ product.tags }}</div>
@@ -72,12 +73,7 @@
             <div class="button-add">Buy</div>
             <div class="detail-info">
                 <div class="product-swipper">
-                    <img class="product-pic active" src="{{ product.image.url }}">
-                    {% for img in product_images %}
-                        {% if img.product_id == product.id %}
-                            <img class="product-pic" src="{{ img.image.url }}">
-                        {% endif %} 
-                    {% endfor %}
+                    <img class="product-pic active" src="{{ product.image.url }}" alt="{{ product.name }}">
                 </div>
                 <div class="product-images">
                     <img class="product-image active" src="{{ product.image.url }}" alt="{{ product.name }}" onclick="setImage(this)"/>
@@ -94,8 +90,9 @@
                     {% endif %}
             </div>
         </div>
+        </div>
     {% endfor %}
-    </div>
+    
     <div class="bar-bottom">
       <div class="bar-items">
         <ul class="items">

@@ -125,3 +125,4 @@ class ProductImage(models.Model):
     image = models.ImageField("Изображения подробно", null=True, blank=True)
     product = models.ForeignKey(Products, verbose_name="Изображения подробно", related_name="images",
                                 on_delete=models.CASCADE)
+

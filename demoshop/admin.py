@@ -1,7 +1,7 @@
 from django.contrib import admin
+
 from .models import *
 
-admin.site.register(Banner)
 admin.site.register(ContactInfo)
 
 
@@ -51,5 +51,16 @@ class CategoryFather(admin.ModelAdmin):
     list_display_links = ('title',)
 
 
-
 admin.site.register(Categories, CategoryFather)
+
+
+@admin.register(Banner)
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ('is_active', 'title', 'id', 'sort',)
+    list_editable = ('sort', 'is_active')
+    list_filter = ('sort',)
+    search_fields = ('title',)
+    list_display_links = ('title',)
+    list_per_page = 20
+    actions = ['delete_selected']
+
