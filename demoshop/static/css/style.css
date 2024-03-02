@@ -343,7 +343,7 @@
     color: #007aff;
   }
   .product {
-    display: flex;
+    display: none;
     transform: translate(0, 0);
     z-index: 100;
     top: 3vh;
