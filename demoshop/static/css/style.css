@@ -17,7 +17,7 @@
         transition: all 0.5s ease-in-out 0s;
         background: white;
         transform: translateY(95vh);
-        margin-bottom: 2vh;
+        margin-bottom: 4vh;
     }
 
     .bar-bottom {
@@ -176,6 +176,7 @@
     left: -5vw;
     cursor: pointer;
     transition: transform 0.5s ease-in-out 0s;
+    margin-left: 5vw;
   }
   .info-item:hover {
     transform: translate(5vw, 0)
