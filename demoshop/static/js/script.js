@@ -137,14 +137,24 @@ function setImage(productImage) {
 
 function subChoose(subItem) {
     let subItemTitle = subItem.innerHTML
-    // console.log(subItemTitle)
-
     let arr = document.querySelectorAll(`.sub-prod`)
     console.log(arr)
     arr.forEach(elem => {
-        console.log(elem)
         if (elem.id === subItemTitle) {
-            console.log(elem)
+            elem.parentElement.style.display = "flex"
+            elem.parentElement.style.opacity = "1"
+            elem.parentElement.style.zIndex = "1"
+
+            elem.style.display = "flex";
+            elem.style.opacity = "1";
+            elem.style.zIndex = "1"
+        } else {
+            elem.parentElement.style.display = "none"
+            elem.parentElement.style.opacity = "0"
+            elem.parentElement.style.zIndex = "0"
+            elem.style.display = "none"
+            elem.style.opacity = "0";
+            elem.style.zIndex = "0"
         }
     })
 }
