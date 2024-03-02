@@ -7,7 +7,7 @@
     }
     .bar-bottom {
         width: 98vw;
-        height: 100vh;
+        height: 99vh;
         position: fixed;
         border-radius: 5vw 5vw 0 0;
         z-index: 99;
